@@ -1,6 +1,7 @@
 package poh
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/h0n9/go-poh/types"
@@ -30,8 +31,8 @@ func (poh *PoH) Tick(interval uint32) {
 		h = poh.hashes[poh.nextCount-1]
 	}
 	for {
-		// fmt.Printf("%x - %d\n", h, i)
 		poh.append(h)
+		fmt.Printf("⛓  %x - %d\n> ", h, poh.getLatestCount())
 		h = hash(h[:])
 		time.Sleep(time.Duration(interval) * time.Millisecond)
 	}

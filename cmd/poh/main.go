@@ -37,8 +37,6 @@ func main() {
 				continue
 			}
 			fmt.Println(msg)
-			count := p.GetCount(history)
-			fmt.Printf("%x - %d\n", history, count)
 		}
 		wait.Done()
 	}()
